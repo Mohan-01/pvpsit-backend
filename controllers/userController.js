@@ -22,7 +22,7 @@ const isAuthorized = async (req, res, next) => {
 
 const isLoggedIn = async (req, res) => {
     try {
-        if (!req.cookies || !req.cookies.jwt) return res.status(403).json({status:'error'});
+        if (!req.cookies || !req.cookies.jwt) return res.status(403).json({status:'error', message: 'You are not logged in'});
         const decoded = await util.promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
         const currentUser = await User.findById(decoded.id);
         if (!currentUser) return res.status(403).json({status:'error'});
@@ -76,7 +76,10 @@ const createSendToken = (user, statusCode, res) => {
       httpOnly: true
     };
   
-    if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+    if (process.env.NODE_ENV === 'production') {
+        console.log('production');
+        cookieOptions.secure = true;
+    }
     res.cookie('jwt', token, cookieOptions);
     console.log('cookie set ->' + token);
     // Remove the passwords from the output

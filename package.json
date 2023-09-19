@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
+    "start:prod": "set NODE_ENV=production&&nodemon server.js",
     "test": "echo \"Error: sno test specified\" && exit 1"
   },
   "keywords": [],
