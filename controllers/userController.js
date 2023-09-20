@@ -125,7 +125,7 @@ const login = async (req, res) => {
 
 const logout = (req, res) => {
     res.cookie('jwt', 'logged out', {
-        expires: new Date(Date.now() + 4 * 1000),
+        expires: new Date(Date.now()),
         httpOnly: true
     });
     res.status(200).json({status: 'success'});
