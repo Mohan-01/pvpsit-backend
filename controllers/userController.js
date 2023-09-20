@@ -129,7 +129,7 @@ const logout = (req, res) => {
         httpOnly: true,
         sameSite:'None',
         sameSite:'None',
-        secure:rue
+        secure:true
     });
     res.clearCookie('jwt');
     res.status(200).json({status: 'success'});
