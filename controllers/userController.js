@@ -97,6 +97,7 @@ const createSendToken = (user, statusCode, res) => {
 const signup = async (req, res) => {
     console.log(req.body);
     const user = await User.create(req.body);
+    console.log('signup');
     createSendToken(user, 201, res);
 }
 
