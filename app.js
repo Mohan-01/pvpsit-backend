@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json({limit: '50mb'}));
 app.use(cors({
-    origin: 'https://pvpsit.onrender.com',
+    origin: ['https://pvpsit.onrender.com', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true
 }));
