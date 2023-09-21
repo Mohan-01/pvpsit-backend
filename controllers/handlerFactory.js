@@ -47,6 +47,7 @@ const update = Model => catchAsync(async (req, res, next) => {
 
 const deletee = Model => catchAsync(async (req, res, next) => {
     await Model.findByIdAndDelete(req.params.id);
+    console.log('deletee', req.params.id)
     sendData(res, 204, null);
 })
 
