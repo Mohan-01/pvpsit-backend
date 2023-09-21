@@ -53,6 +53,7 @@ const deletee = Model => catchAsync(async (req, res, next) => {
 
 const deleteAll = Model => catchAsync(async (req, res, next) => {
 await Model.deleteMany();
+    console.log('deleteAll')
     sendData(res, 204, null);
 })
 

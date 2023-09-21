@@ -8,8 +8,8 @@ router.get('/' ,internshipController.getAll);
 router.get('/:id',internshipController.getById);
 router.use(userController.protect, userController.isAuthorized)
 router.post('/', internshipController.create);
-router.route('/:id').patch(internshipController.update).delete(internshipController.deletee);
 router.delete('/delete-all', internshipController.deleteAll);
+router.route('/:id').patch(internshipController.update).delete(internshipController.deletee);
 
 
 export default router;
